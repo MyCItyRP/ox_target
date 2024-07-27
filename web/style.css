@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --color-default: #cfd2da;
-  --color-hover: white;
+  --color-default: white;
+  --color-hover: #ff0000;
 }
 
 body {
@@ -28,11 +28,11 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 22pt;
-  fill: black;
+  color: var(--color-default);
 }
 
 .eye-hover {
-  fill: var(--color-default);
+  color: var(--color-hover);
 }
 
 #options-wrapper {
@@ -48,16 +48,13 @@ p {
   justify-content: flex-start;
   align-items: center;
   font-family: "Nunito";
-  background: linear-gradient(
-    90deg,
-    rgba(20, 20, 20, 0.7) 0%,
-    rgba(20, 20, 20, 0.6) 66%,
-    rgba(47, 48, 53, 0) 100%
-  );
+  background: linear-gradient(to right, #21262f, #161a20);
   font-size: 11pt;
   line-height: 22pt;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
   vertical-align: middle;
-  margin: 2pt;
+  margin: 2pt 2pt 0.2vh;
   transition: 300ms;
   transform-origin: left top;
   scale: 1;
@@ -67,14 +64,7 @@ p {
 }
 
 .option-container:hover {
-  background: linear-gradient(
-    90deg,
-    rgba(30, 30, 30, 0.7) 0%,
-    rgba(30, 30, 30, 0.6) 66%,
-    rgba(57, 58, 63, 0) 100%
-  );
   transform-origin: left top;
-  color: var(--color-hover);
   margin-left: 4pt;
 }
 
@@ -82,7 +72,7 @@ p {
   font-size: 12pt;
   line-height: 22pt;
   width: 14pt;
-  margin: 5pt;
+  margin: 5pt 0.5rem 5pt 5pt;
   color: var(--color-default);
 }
 
