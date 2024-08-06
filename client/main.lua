@@ -181,6 +181,36 @@ local function startTargeting()
         hit, entityHit, endCoords = lib.raycast.fromCamera(flag, 4, 20)
         distance = #(playerCoords - endCoords)
 
+        local vehicle = 0
+        if not hit then
+            vehicle = GetVehiclePedIsIn(cache.ped)
+            if vehicle ~= 0 then
+                hit = true
+                entityHit = vehicle
+                distance = 0.0
+
+                local seatPedIsIn
+                if GetPedInVehicleSeat(entityHit, -1) == cache.ped then
+                    seatPedIsIn = 'seat_dside_f'
+                elseif GetPedInVehicleSeat(entityHit, 0) == cache.ped then
+                    seatPedIsIn = 'seat_pside_f'
+                elseif GetPedInVehicleSeat(entityHit, 1) == cache.ped then
+                    seatPedIsIn = 'seat_dside_r'
+                elseif GetPedInVehicleSeat(entityHit, 2) == cache.ped then
+                    seatPedIsIn = 'seat_pside_r'
+                end
+                if seatPedIsIn then
+                    endCoords = GetWorldPositionOfEntityBone(entityHit, GetEntityBoneIndexByName(entityHit, seatPedIsIn))
+                    if seatPedIsIn == 'seat_dside_f' then
+                        local model = GetEntityModel(entityHit)
+                        if GetVehicleClass(entityHit) == 8 or model == `policeb` or model == `policeb1` or model == `policeb2`then
+                            endCoords = GetEntityCoords(entity)
+                        end
+                    end
+                end
+            end
+        end
+
         if entityHit ~= 0 and entityHit ~= lastEntity then
             local success, result = pcall(GetEntityType, entityHit)
             entityType = success and result or 0
@@ -209,7 +239,7 @@ local function startTargeting()
         if entityHit > 0 and entityChanged then
             currentMenu = nil
 
-            if flag ~= 511 then
+            if flag ~= 511 and vehicle == 0 then
                 entityHit = HasEntityClearLosToEntity(entityHit, cache.ped, 7) and entityHit or 0
             end
 
