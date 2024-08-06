@@ -36,13 +36,13 @@ local drawZoneSprites = GetConvarInt('ox_target:drawSprite', 24)
 local SetDrawOrigin = SetDrawOrigin
 local DrawSprite = DrawSprite
 local ClearDrawOrigin = ClearDrawOrigin
-local colour = vector(155, 155, 155, 175)
-local hover = vector(98, 135, 236, 255)
+local colour = vector(255, 255, 255, 255)
+local hover = vector(220, 20, 60, 255)
 local currentZones = {}
 local previousZones = {}
 local drawZones = {}
 local drawN = 0
-local width = 0.02
+local width = 0.015
 local height = width * GetAspectRatio(false)
 
 if drawZoneSprites == 0 then drawZoneSprites = -1 end
