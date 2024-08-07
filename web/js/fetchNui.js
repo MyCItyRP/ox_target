@@ -1,4 +1,5 @@
-const resource = GetParentResourceName();
+const {GetParentResourceName} = window;
+const resource = GetParentResourceName?.();
 
 export async function fetchNui(eventName, data) {
   const resp = await fetch(`https://${resource}/${eventName}`, {

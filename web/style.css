@@ -58,8 +58,9 @@ p {
   transition: 300ms;
   transform-origin: left top;
   scale: 1;
-  height: 22pt;
-  width: 150pt;
+  min-height: 22pt;
+  min-width: 170pt;
+  max-width: 40vw;
   top: 0;
 }
 
@@ -70,7 +71,6 @@ p {
 
 .option-icon {
   font-size: 12pt;
-  line-height: 22pt;
   width: 14pt;
   margin: 5pt 0.5rem 5pt 5pt;
   color: var(--color-default);
@@ -78,4 +78,7 @@ p {
 
 .option-label {
   font-weight: 500;
+  text-wrap: wrap;
+  line-height: 1rem;
+  padding: .3rem 2rem .3rem .3rem;
 }

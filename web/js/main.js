@@ -9,6 +9,7 @@ window.addEventListener("message", (event) => {
 
   switch (event.data.event) {
     case "visible": {
+      console.log('visible')
       body.style.visibility = event.data.state ? "visible" : "hidden";
       return eye.classList.remove("eye-hover");
     }
