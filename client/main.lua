@@ -54,6 +54,10 @@ local function shouldHide(option, distance, endCoords, entityHit, entityType, en
         return true
     end
 
+    if option.excludegroups and utils.hasPlayerGotGroup(option.excludegroups) then
+        return true
+    end
+
     if option.items and not utils.hasPlayerGotItems(option.items, option.anyItem) then
         return true
     end
