@@ -49,8 +49,6 @@ p {
   align-items: center;
   font-family: "Nunito";
   background: linear-gradient(to right, #21262f, #161a20);
-  font-size: 11pt;
-  line-height: 22pt;
   padding: 0.15rem 0.35rem;
   border-radius: 0.25rem;
   vertical-align: middle;
@@ -70,15 +68,16 @@ p {
 }
 
 .option-icon {
-  font-size: 12pt;
-  width: 14pt;
+  font-size: 11pt;
+  width: 13pt;
   margin: 5pt 0.5rem 5pt 5pt;
   color: var(--color-default);
 }
 
 .option-label {
+  font-size: 10pt;
   font-weight: 500;
   text-wrap: wrap;
   line-height: 1rem;
-  padding: .3rem 2rem .3rem .3rem;
+  padding: .3rem;
 }
