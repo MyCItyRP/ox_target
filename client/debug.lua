@@ -1,5 +1,5 @@
 AddEventHandler('ox_target:debug', function(data)
-    if data.entity and GetEntityType(data.entity) > 0 then
+    if data.entity then--and GetEntityType(data.entity) > 0 then
         data.archetype = GetEntityArchetypeName(data.entity)
         data.model = GetEntityModel(data.entity)
     end
