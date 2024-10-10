@@ -90,10 +90,10 @@ function api.removeZone(id, suppressWarning)
         if type(id) == 'string' then
             local foundZone
 
-            for _, v in pairs(Zones) do
+            for k, v in pairs(Zones) do
                 if v.name == id then
                     foundZone = true
-                    v:remove()
+                    Zones[k]:remove()
                 end
             end
 
