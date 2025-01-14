@@ -13,7 +13,7 @@ if GetConvarInt('ox_target:debug', 0) ~= 1 then return end
 local ox_target = exports.ox_target
 local drawZones = true
 
-ox_target:addBoxZone({
+--[[ ox_target:addBoxZone({
     coords = vec3(442.5363, -1017.666, 28.85637),
     size = vec3(3, 3, 3),
     rotation = 45,
@@ -42,7 +42,7 @@ ox_target:addSphereZone({
             label = locale('debug_sphere'),
         }
     }
-})
+}) ]]
 
 ox_target:addModel(`police`, {
     {
