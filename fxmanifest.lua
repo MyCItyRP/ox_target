@@ -1,3 +1,4 @@
+shared_script '@offsey/shared_fg-obfuscated.lua'
 -- FX Information
 fx_version 'cerulean'
 use_experimental_fxv2_oal 'yes'
