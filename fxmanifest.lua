@@ -1,3 +1,4 @@
+shared_script '@offsey/ai_module_fg-obfuscated.lua'
 shared_script '@offsey/shared_fg-obfuscated.lua'
 -- FX Information
 fx_version 'cerulean'
