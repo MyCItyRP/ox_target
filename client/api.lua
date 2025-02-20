@@ -338,7 +338,7 @@ function api.addLocalEntity(arr, options)
 
             addTarget(localEntities[entityId], options, resource)
         else
-            print(("No entity with id '%s' exists."):format(entityId))
+            --print(("No entity with id '%s' exists."):format(entityId))
         end
     end
 end
