@@ -165,6 +165,8 @@ local function startTargeting()
 
                 if not hasTarget or options and IsDisabledControlJustPressed(0, 25) then
                     state.setNuiFocus(false, false)
+                    SetControlNormal(0, 24, 0.0) -- Left Click Release
+                    SetControlNormal(0, 25, 0.0) -- Right Click Release
                 end
             elseif hasTarget and IsDisabledControlJustPressed(0, mouseButton) then
                 state.setNuiFocus(true, true)
