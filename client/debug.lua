@@ -6,6 +6,7 @@ AddEventHandler('ox_target:debug', function(data)
     end
 
 	print(json.encode(data, {indent=true}))
+    print(data.coords)
 end)
 
 if GetConvarInt('ox_target:debug', 0) ~= 1 then return end
