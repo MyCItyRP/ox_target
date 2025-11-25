@@ -1,40 +1,25 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-
-local success, result = pcall(function()
-    return QBCore.Functions.GetPlayerData()
-end)
-
-local playerData = success and result or {}
+local playerData = {job = {}, gang = {}}
 local utils = require 'client.utils'
-local playerItems = utils.getItems()
 
-local function setPlayerItems()
-    if not playerData or not playerData.items then return end
-
-    table.wipe(playerItems)
-
-    for _, item in pairs(playerData.items) do
-        playerItems[item.name] = (playerItems[item.name] or 0) + (item.amount or 0)
+Citizen.CreateThread(function()
+    if LocalPlayer.state.isLoggedIn then
+        playerData = QBCore.Functions.GetPlayerData()
     end
-end
-
-local usingOxInventory = utils.hasExport('ox_inventory.Items')
-
-if not usingOxInventory then
-    setPlayerItems()
-end
+end)
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
     playerData = QBCore.Functions.GetPlayerData()
-    if not usingOxInventory then setPlayerItems() end
 end)
 
-RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
-    if source == '' then return end
+RegisterNetEvent('QBCore:Client:OnGangUpdate')
+AddEventHandler('QBCore:Client:OnGangUpdate', function(gang)
+    playerData.gang = gang
+end)
 
-    playerData = val
-
-    if not usingOxInventory then setPlayerItems() end
+RegisterNetEvent('QBCore:Client:OnJobUpdate')
+AddEventHandler('QBCore:Client:OnJobUpdate', function(job)
+    playerData.job = job
 end)
 
 ---@diagnostic disable-next-line: duplicate-set-field
