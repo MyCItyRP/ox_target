@@ -1,83 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap");
+/* Layout only. The look is MyCity_UI's: .mc-target (the eye), .mc-menu and
+   .mc-menu-item / .mc-menu-icon (the options). */
 
-:root {
-  --color-default: white;
-  --color-hover: #ff0000;
-}
-
+/* the page is shown by the game's "visible" message */
 body {
   visibility: hidden;
-  user-select: none;
-  white-space: nowrap;
-  margin: 0;
-  user-select: none;
-  overflow: hidden;
 }
 
-p {
-  margin: 0;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 40;
-}
-
-#eye {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 22pt;
-  color: var(--color-default);
-}
-
-.eye-hover {
-  color: var(--color-hover);
-}
-
-#options-wrapper {
-  position: absolute;
-  top: calc(48.4%);
-  left: calc(50% + 18pt);
-}
-
-.option-container {
-  color: var(--color-default);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: "Nunito";
-  background: linear-gradient(to right, #21262f, #161a20);
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  vertical-align: middle;
-  margin: 2pt 2pt 0.2vh;
-  transition: 300ms;
-  transform-origin: left top;
-  scale: 1;
-  min-height: 22pt;
-  min-width: 170pt;
+/* the options, right of the eye, the first one level with it */
+#options {
+  position: fixed;
+  top: calc(50% - 1rem);
+  left: calc(50% + 2.2rem);
+  min-width: 12rem;
   max-width: 40vw;
-  top: 0;
+  max-height: 46vh;
 }
 
-.option-container:hover {
-  transform-origin: left top;
-  margin-left: 4pt;
-}
-
-.option-icon {
-  font-size: 11pt;
-  width: 13pt;
-  margin: 5pt 0.5rem 5pt 5pt;
-  color: var(--color-default);
-}
-
-.option-label {
-  font-size: 10pt;
-  font-weight: 500;
-  text-wrap: wrap;
-  line-height: 1rem;
-  padding: .3rem;
+#options[hidden] {
+  display: none;
 }

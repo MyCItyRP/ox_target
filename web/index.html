@@ -1,13 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
   <head>
+    <meta charset="utf-8" />
+    <!-- the options' icons: other scripts name them by their Font Awesome classes -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- the look: MyCity_UI, loaded at runtime (never a dependency) -->
+    <link rel="stylesheet" href="https://cfx-nui-MyCity_UI/dist/mc-base.css" />
+    <link rel="stylesheet" href="https://cfx-nui-MyCity_UI/dist/mc.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cfx-nui-MyCity_UI/dist/mc.js"></script>
   </head>
   <body>
-    <div id="eye">
-      <i id="eyeSvg" class="fa-regular fa-hand"></i>
+    <div class="mc-root">
+      <div id="eye" class="mc-target"></div>
     </div>
-    <div id="options-wrapper"></div>
-    <script defer type="module" src="js/main.js"></script>
+    <!-- on the body, not in the click-through .mc-root: its choices take the click -->
+    <div id="options" class="mc-menu mc-menu--split" hidden></div>
+    <script src="js/main.js"></script>
   </body>
 </html>
